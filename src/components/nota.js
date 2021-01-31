@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Nota = ({ value, index, onChange}) => {
+const Nota = ({ value, index, onChange, onDestroy}) => {
   const [grade, setGrade] = React.useState(0)
   const [percentage, setPercentage] = React.useState(0)
 
@@ -18,10 +18,15 @@ const Nota = ({ value, index, onChange}) => {
     onChange(_grade * _percentage / 100, index);
   }
 
+  const onClickHandler = (e) => {
+    onDestroy(index)
+  }
+
   return(
     <div>
       <input onChange={gradeChangeHandler} />
       <input onChange={percentageChangeHandler} />
+      <button onClick={onClickHandler}>X</button>
     </div>
   );
 }
