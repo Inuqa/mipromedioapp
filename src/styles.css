@@ -1,0 +1,80 @@
+body {
+  display: flex;
+  justify-content: center;
+  background: #f3f3f3;
+}
+
+
+.main {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px
+}
+
+.nota {
+  width: 40%;
+}
+
+.nota p {
+  height: 30px
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  align-self: center;
+  border: none;
+  background: #33E6FF;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 4px 2px;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.delete {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#promedio {
+  margin-top: 50px
+}
+
+.button:hover {
+  background: #3393FF;
+}
+
+input {
+  padding: 8px;
+  margin: 20px;
+}
+
+.final-grade {
+  display: flex;
+  justify-content: center;
+}
+
+.main input {
+  width: 10%
+}
+
+.final-inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.final-inputs p {
+  width: 60%
+}

@@ -18,15 +18,16 @@ const Nota = ({ value, index, onChange, onDestroy}) => {
     onChange(_grade * _percentage / 100, index);
   }
 
+  /*
   const onClickHandler = (e) => {
     onDestroy(index)
   }
+  */
 
   return(
-    <div>
-      <input onChange={gradeChangeHandler} />
-      <input onChange={percentageChangeHandler} />
-      <button onClick={onClickHandler}>X</button>
+    <div className="nota">
+      <p>Nota {index + 1}<input onChange={gradeChangeHandler} />
+      <input onChange={percentageChangeHandler} />%</p>
     </div>
   );
 }

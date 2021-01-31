@@ -1,10 +1,11 @@
 import React from 'react'
 
 import Nota from './components/nota'
+import './styles.css'
 
 const App = () => {
-  const [inputsArr, setInputsArr] = React.useState([0, 0, 0, 0])
-  const [dataArr, setDataArr] = React.useState([0,0])
+  const [inputsArr, setInputsArr] = React.useState([0,0,0,0])
+  const [dataArr, setDataArr] = React.useState([0,0,0,0])
   const [finalPercentage, setFinalPercentage] = React.useState(0)
   const [finalGrade, setFinalGrade] = React.useState(0)
   const [final, setFinal] = React.useState([0,0])
@@ -16,11 +17,28 @@ const App = () => {
   }
 
   const addNota = () => {
-    let arr = [...inputsArr]
-    arr.push(0)
-    setInputsArr(arr)
+    let arr1 = [...inputsArr]
+    let arr2 = [...dataArr]
+    arr1.push(0)
+    arr2.push(0)
+    setInputsArr(arr1)
+    setDataArr(arr2)
   }
 
+  const deleteLast = () => {
+    let arr1 = [...inputsArr]
+    if (arr1.length === 2){
+      alert("you cant delete more items")
+      return
+    }
+    let arr2 = [...dataArr]
+    arr1.pop()
+    arr2.pop()
+    setInputsArr(arr1)
+    setDataArr(arr2)
+  }
+
+/* delete an specific item
   const deleteItem = (index) => {
     let arr1 = [...inputsArr]
     let arr2 = [...dataArr]
@@ -29,6 +47,7 @@ const App = () => {
     setInputsArr(arr1)
     setDataArr(arr2)
   }
+*/
 
   const getFinalsPercentage = ({target:{value}}) => {
     setFinalPercentage((+value) / 100)
@@ -58,24 +77,37 @@ const App = () => {
   }
 
   const displayInputs = inputsArr.map((number,index) => 
-    <Nota 
+    <Nota
+      key={index}
       value={number}
       index={index}
       onChange={updateData}
-      onDestroy={deleteItem}
+      //onDestroy={deleteItem}
       />
     );
 
   return(
-    <div>
+    <div className='main'>
+      <div className='content'>'
       {displayInputs}
-      <p>promedio {getNotas(dataArr)} </p>
+      <p id="promedio">Promedio {getNotas(dataArr)} </p>
       <br />
-      <button onClick={addNota}>+</button>
-      <div className="examen">
-        <input onChange={getFinalGrade}/>
-        <input onChange={getFinalsPercentage} />
-        <p>Promedio Final {getNotas(final)}</p>
+        <div className="buttons">
+          <button className="button" onClick={addNota}>+</button>
+          <button className="button delete" onClick={deleteLast}>-</button>
+        </div>
+        <div className="examen">
+          <div className="final-inputs">
+            <p>Nota examen
+            <input onChange={getFinalGrade}/>
+            <input onChange={getFinalsPercentage} />
+            % 
+            </p>
+          </div>
+          <div className="final-grade">
+            <p>Promedio Final {getNotas(final)}</p>
+          </div>
+        </div>
       </div>
     </div>
   )
