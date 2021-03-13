@@ -17,7 +17,7 @@ body {
 }
 
 .nota {
-  width: 40%;
+  width: 60%;
 }
 
 .nota p {
@@ -73,15 +73,29 @@ input {
 .final-inputs {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.final-inputs p {
-  width: 60%
+.final-inputs input {
+  width: 40px;
 }
 
-@media screen and (max-width: 400px) {
-  .nota {
+.grades {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 100px;
+  transition: margin-left 0.5s
+}
+
+@media screen and (max-width: 500px) {
+  .grades {
     width: 100%;
+    margin-left: 0;
+  }
+  .nota {
+    width: 90%;
   }
 
   .final-inputs {
