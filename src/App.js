@@ -98,15 +98,13 @@ const App = () => {
         </div>
         <div className="examen">
           <div className="final-inputs">
-            <p>Nota examen
+            Nota examen
             <input onChange={getFinalGrade}/>
             <input onChange={getFinalsPercentage} />
             % 
-            </p>
           </div>
           <div className="final-grade">
-            <p>Promedio Final {getNotas(final)}</p>
-          </div>
+            Promedio Final {getNotas(final)} </div>
         </div>
       </div>
     </div>
